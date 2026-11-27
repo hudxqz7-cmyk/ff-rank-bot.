@@ -126,7 +126,7 @@ class MatchView(discord.ui.View):
     @discord.ui.select(cls=discord.ui.UserSelect, placeholder="Selecione os PERDEDORES", min_values=1, max_values=5, row=1)
     async def lose_select(self,i:discord.Interaction,select:discord.ui.UserSelect):
         self.losers=[u.id for u in select.values]; await i.response.defer()
-    @discord.ui.user_select(placeholder="Selecione o MVP (opcional)",min_values=1,max_values=1,row=2)
+    @discord.ui.select(cls=discord.ui.UserSelect, placeholder="Selecione o MVP (opcional)", min_values=1, max_values=1, row=2)
     async def mvp_select(self,i:discord.Interaction,select:discord.ui.UserSelect):
         self.mvp=select.values[0].id; await i.response.defer()
     @discord.ui.button(label="Confirmar registro",style=discord.ButtonStyle.success,row=3)
