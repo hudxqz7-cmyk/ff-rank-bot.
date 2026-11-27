@@ -120,7 +120,7 @@ class MatchView(discord.ui.View):
             await i.response.send_message("Somente quem abriu o registro pode confirmar.",ephemeral=True)
             return False
         return True
-    @discord.ui.user_select(placeholder="Selecione os VENCEDORES",min_values=1,max_values=5,row=0)
+    @discord.ui.select(cls=discord.ui.UserSelect, placeholder="Selecione os VENCEDORES", min_values=1, max_values=5, row=0)
     async def win_select(self,i:discord.Interaction,select:discord.ui.UserSelect):
         self.winners=[u.id for u in select.values]; await i.response.defer()
     @discord.ui.user_select(placeholder="Selecione os PERDEDORES",min_values=1,max_values=5,row=1)
